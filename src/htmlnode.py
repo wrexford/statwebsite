@@ -21,8 +21,8 @@ class HTMLNode:
     
 
 class LEAFNode(HTMLNode):
-    def __init__(self, tag, value,props=None):
-        super().__init__(self,tag, value, props)
+    def __init__(self, tag, value, props=None):
+        super().__init__(tag, value, None, props)
 
     def to_html(self):
         if self.value == None:
@@ -37,7 +37,7 @@ class LEAFNode(HTMLNode):
 
 class ParentNode(HTMLNode):
     def __init__(self, tag, children, props=None):
-        super().__init__(self,tag, children, props)
+        super().__init__(tag, None, children, props)
 
     def to_html(self):
         result = ""
