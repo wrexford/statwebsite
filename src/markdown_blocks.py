@@ -124,7 +124,7 @@ def quote_to_html_node(block):
     children = text_to_children(content)
     return ParentNode("blockquote", children)
 
-def block_to_html(block):
+def block_to_html_node(block):
     block_type = block_to_block_type(block)
     if block_type == block_type_paragraph:
         return paragraph_to_html_node(block)
