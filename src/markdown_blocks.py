@@ -36,9 +36,15 @@ def block_to_block_type(block):
                 return block_type_paragraph
         return block_type_quote
     
-    elif block[0] == "* " or block[0] == "- ":  
+    elif block.startswith("* "):  
         for line in text:
-            if line.startswith("* ") == False and line.startwith("- ") == False:
+            if line.startswith("* ") == False:
+                return block_type_paragraph 
+        return block_type_unordered_list
+    
+    elif block.startswith("- "):  
+        for line in text:
+            if line.startswith("- ") == False:
                 return block_type_paragraph 
         return block_type_unordered_list
     
@@ -52,7 +58,7 @@ def block_to_block_type(block):
     else:
         return block_type_paragraph
     
-def markdown_to_html(markdown):
+def markdown_to_html_node(markdown):
     blocks = markdown_to_blocks(markdown)
     children = []
     for block in blocks:
