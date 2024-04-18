@@ -1,4 +1,5 @@
 import os, shutil
+from pathlib import Path
 from textnode import TextNode
 from markdown_blocks import markdown_to_html_node
 
