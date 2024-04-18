@@ -2,11 +2,23 @@ import os, shutil
 from textnode import TextNode
 from markdown_blocks import markdown_to_html_node
 
+dir_path_static = "./static"
+dir_path_public = "./public"
+dir_path_content = "./content"
+template_path = "./template.html"
+
 def main():
     #run_cases = TextNode("This is a text node", "bold", "https://www.boot.dev")
     #print(run_cases.__repr__())
     print("Copying files")
     copy_static_to_public()
+    
+    print("Generating page...")
+    generate_page(
+        os.path.join(dir_path_content, "index.md"),
+        template_path,
+        os.path.join(dir_path_public, "index.html"),
+    )
 
 def copy_static_to_public():
     path_from = "static"
