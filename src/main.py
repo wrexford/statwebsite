@@ -8,8 +8,8 @@ def main():
     copy_static_to_public()
 
 def copy_static_to_public():
-    path_from = "/static"
-    path_to = "/public"
+    path_from = "static"
+    path_to = "public"
     
     for src_dir, dirs, files in os.walk(path_from):
         dst_dir = src_dir.replace(path_from, path_to, 1)
@@ -21,7 +21,7 @@ def copy_static_to_public():
             if os.path.exists(dst_file):
                 os.remove(dst_file)
             shutil.copy(src_file, dst_file)
-            print(f'Copying {src_dir}\{src_file} to {src_dir}')
+            print(f"Copying {src_dir} \ {src_file} to {src_dir}")
 
 
 
